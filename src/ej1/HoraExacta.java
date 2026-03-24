@@ -5,15 +5,42 @@ public class HoraExacta extends Hora {
 	
 	public HoraExacta(int hora, int minuto, int segundo) {
 		super(hora, minuto);
-		setSegundo(segundo);
+		if (!setSegundo(segundo)) setSegundo(0);
 	}
 
 	public int getSegundo() {
 		return segundo;
 	}
-	public void setSegundo(int segundo) {
-		this.segundo = segundo;
+	public boolean setSegundo(int segundo) {
+		boolean posible = false;
+		if (segundo >= 0 && segundo < 60) {
+			this.segundo = segundo;
+			posible = true;
+		}
+		return posible;
 	}
+	
+	public void verificarHora() {
+		if (segundo >= 60) {
+			segundo = 0;
+			super.inc();
+		}
+	}
+	
+	@Override
+	public void inc() {
+		segundo++;
+		verificarHora();
+	}
+
+	@Override
+	public String toString() {
+		String stringSegundo = ":";
+		if (segundo < 10) stringSegundo += "0";
+		return super.toString()+stringSegundo+segundo;
+	}
+	
+	
 	
 	
 }

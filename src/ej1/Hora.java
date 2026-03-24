@@ -14,7 +14,7 @@ public class Hora {
 	}
 	public boolean setHora(int hora) {
 		boolean posible = false;
-		if (hora < 60 || hora > 0) {
+		if (hora >= 0 && hora < 24) {
 			this.hora = hora;
 			posible = true;
 		}
@@ -25,7 +25,7 @@ public class Hora {
 	}
 	public boolean setMinuto(int minuto) {
 		boolean posible = false;
-		if (minuto < 60 || minuto > 0) {
+		if (minuto >= 0 && minuto < 60) {
 			this.minuto = minuto;
 			posible = true;
 		}
@@ -34,14 +34,14 @@ public class Hora {
 	
 	public void inc() {
 		minuto++;
-		verificarHora();
+		this.verificarHora();
 	}
 	
 	public void verificarHora() {
-		while (minuto >= 60) {
+		if (minuto >= 60) {
 			minuto = 0;
 			hora++;
-			while (hora >= 24) {
+			if (hora >= 24) {
 				hora = 0;
 			}
 		}
@@ -49,9 +49,10 @@ public class Hora {
 
 	@Override
 	public String toString() {
-		String stringHora = ":";
-		if (minuto < 10) stringHora += "0";
-		return hora+stringHora+minuto;
+		String stringHora = "";
+		String stringMinuto = ":";
+		if (hora < 10) stringHora += "0";
+		if (minuto < 10) stringMinuto += "0";
+		return stringHora+hora+stringMinuto+minuto;
 	}
-	
 }
