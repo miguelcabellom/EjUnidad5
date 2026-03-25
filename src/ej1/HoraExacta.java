@@ -20,7 +20,7 @@ public class HoraExacta extends Hora {
 		return posible;
 	}
 	
-	public void verificarHora() {
+	public void verificarSegundos() {
 		if (segundo >= 60) {
 			segundo = 0;
 			super.inc();
@@ -30,7 +30,7 @@ public class HoraExacta extends Hora {
 	@Override
 	public void inc() {
 		segundo++;
-		verificarHora();
+		verificarSegundos();
 	}
 
 	@Override
