@@ -25,5 +25,11 @@ public class Producto {
 	public double calcular(int numeroProductos) {
 		return precio*numeroProductos;
 	}
+
+	@Override
+	public String toString() {
+		return "Producto: "+nombre+" "+precio;
+	}
+	
 	
 }
