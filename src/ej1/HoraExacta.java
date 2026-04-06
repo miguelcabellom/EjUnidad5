@@ -1,7 +1,7 @@
 package ej1;
 
 public class HoraExacta extends Hora {
-	int segundo;
+	protected int segundo;
 	
 	public HoraExacta(int hora, int minuto, int segundo) {
 		super(hora, minuto);
