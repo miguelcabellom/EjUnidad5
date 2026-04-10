@@ -40,7 +40,8 @@ class Triangulo extends Poligono {
 	
 	@Override
 	public double area() {
-		return 1.1;
+		double s = (lado1+lado2+lado3)/2;
+		return Math.sqrt(s*(s-lado1)*(s-lado2)*(s-lado3));
 	}
 	
 	@Override
