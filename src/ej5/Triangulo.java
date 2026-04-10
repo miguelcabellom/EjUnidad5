@@ -46,6 +46,6 @@ class Triangulo extends Poligono {
 	
 	@Override
 	public String toString() {
-		return "Triangulo, "+super.toString()+",lado 1: "+lado1+", lado 2:"+lado2+", lado 3: "+lado3;
+		return "Triangulo, "+super.toString()+", lado 1: "+lado1+", lado 2: "+lado2+", lado 3: "+lado3;
 	}
 }
