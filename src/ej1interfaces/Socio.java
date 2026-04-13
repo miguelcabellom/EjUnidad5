@@ -1,11 +1,11 @@
 package ej1interfaces;
 
-public class Socio {
-	int id;
-	String nombre;
-	int edad;
+public class Socio implements Comparable {
+	private int id;
+	private String nombre;
+	private int edad;
 	
-	Socio(int id, String nombre, int edad) {
+	public Socio(int id, String nombre, int edad) {
 		setId(id);
 		setNombre(nombre);
 		setEdad(edad);
@@ -29,10 +29,22 @@ public class Socio {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+
+	public int compareTo(Object obj){
+		int res = 0;
+		Socio socio = (Socio) obj;
+		if (id < socio.id) {
+			res = -1;
+		} else if (id > socio.id) {
+			res = 1;
+		}
+		return res;
+	}
 	
 	@Override
 	public String toString() {
 		return "Socio, id: "+id+", nombre: "+nombre+", edad: "+edad;
 	}
+	
 	
 }
