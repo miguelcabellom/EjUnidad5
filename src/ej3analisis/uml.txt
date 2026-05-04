@@ -1,0 +1,63 @@
+- Titular: dni, nombre, apellidos, telefono
+- CuentaBacaria (abstracta): numeroCuenta, saldo, titulares(1-3) // ingresar, retirar
+- CuentaAhorro: cuotaMantenimiento, interesAnual // calcularSaldoConInteres(), aplicarCuotaMantenimiento()
+- CuentaCorriente: porcentajeTransaccion, listade transacciones // realizarTransaccion()
+- Transaccion(Value Object): dia, mes, anio, concepto, importe
+
+-----------------------------------------------------------------------------------------------------------
+
+-----------------------------------
+Titular
+-----------------------------------
+ - dni:			String
+ - nombre:		String
+ - apellidos:	String
+ - telefono:	String
+ + Titular(dn, nombre, apellidos, telefono)
+ + getters/setters
+ + toString()
+
+
+-----------------------------------
+Transaccion
+-----------------------------------
+ - dia, mes, anio:	int
+ - concepto:		String
+ - importe:			double
+ + Transaccion( ... )
+ + getters/setters
+ + toString()
+
+
+-----------------------------------
+<<abstract>> CuentaBancaria
+-----------------------------------
+ # numeroCuenta:	String
+ # saldo: 			double
+ # titulares:		List<Titulares>
+-----------------------------------
+- MAX_TITULARES: int = 3 (static)
+-----------------------------------
+ + CuentaBancaria(nCuenta, saldoIni, titular)
+ + ingresar(cantidad	: double)	: void
+ + retirar (cantidad	: double)	: boolean
+ + anadirTitular(titular: Titular)	: boolean
+ + borrarTitular(dni	: String)	: boolean
+ + getSaldo / getNumeroCuenta
+ + 
+ + toString()
+
+
+-----------------------------------
+
+-----------------------------------
+
+
+-----------------------------------
+CuentaCorriente
+-----------------------------------
+ - porcentajeTransaccion	: double
+ - transacciones			: List<Transaccion>
+-----------------------------------
+ + realizarTransaccion(transaccion : Transaccion) : boolean
+ + getTransacciones

@@ -1,0 +1,2 @@
+- Vehiculo: marca, modelo, color, matricula, motorEncendido, marchaActual, velocidadActual
+- Turismo: 
